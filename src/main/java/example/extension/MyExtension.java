@@ -17,12 +17,17 @@ public class MyExtension implements BurpExtension {
         MyHttpHandler HttpHandler = new MyHttpHandler(api);
         MyScopeHandler ScopeHandler = new MyScopeHandler(api);
         MyAuditIssueHandler AuditIssueHandler = new MyAuditIssueHandler(api);
-
+        MyAudit Audit = new MyAudit(api);
 
         // 註冊 handler
         api.http().registerHttpHandler(HttpHandler);
         api.scope().registerScopeChangeHandler(ScopeHandler);
         api.scanner().registerAuditIssueHandler(AuditIssueHandler);
+
+        // 使用函式
+        Audit.issues();
+
+
 
     }
 }

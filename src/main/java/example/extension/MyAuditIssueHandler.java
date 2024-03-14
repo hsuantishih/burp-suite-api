@@ -11,9 +11,13 @@ public class MyAuditIssueHandler implements AuditIssueHandler {
         this.api = apiArg;
     }
 
-
     @Override
     public void handleNewAuditIssue(AuditIssue auditIssue) {
         this.api.logging().logToOutput("There are some issue from audit handler");
+        this.api.logging().logToOutput("The followings are the detail");
+
+        this.api.logging().logToOutput(auditIssue.name());
+        this.api.logging().logToOutput(auditIssue.detail());
+        this.api.logging().logToOutput(auditIssue.baseUrl());
     }
 }
